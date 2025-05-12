@@ -1,0 +1,15 @@
+<h1><%= @category.name %></h1>
+
+<%= link_to "Add Recipe", new_category_bookmark_path(@category), class: "btn btn-primary" %>
+
+<ul>
+  <% @category.bookmarks.each do |bookmark| %>
+    <li>
+      <h3><%= link_to bookmark.recipe.name, recipe_path(bookmark.recipe) %></h3>
+      <p> <%= bookmark.recipe.description %>  </p>
+      <%= link_to 'Delete', bookmark_path(bookmark),class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Back to Cookbook", categories_path , class: "btn btn-primary" %>

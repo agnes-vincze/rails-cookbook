@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="header-btn">
+    <h3> List of Categories </h3>
+    <p> <%=link_to "Add New Category", new_category_path %></p>
+  </div>
+
+  <div class="card-wrapper">
+    <% @categories.each do |category| %>
+      <%= link_to category_path(category), class: "card-link" do %>
+        <div class="card-texts">
+        <div class="card" style="background: linear-gradient(rgba(0, 0, 0, 0.2)), url('<%= asset_path(category.image_url.presence || "default.jpg") %>'); background-size: cover; background-position: center; position: relative;">
+          <h1><%= category.name %></h1>
+          <h4><%= "#{category.recipes.count} recipes" %></h4>
+        </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

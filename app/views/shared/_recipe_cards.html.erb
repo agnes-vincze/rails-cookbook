@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="header-btn">
+    <h3>Recipes</h3>
+    <p><%= link_to "Add New Recipe", new_category_bookmark_path(@category) %></p>
+  </div>
+
+  <div class="cards">
+    <% @category.bookmarks.each do |bookmark| %>
+      <%= link_to recipe_path(bookmark.recipe), class: "card-link" do %>
+        <div class="card">
+          <div class="card-recipe">
+            <img src="<%= bookmark.recipe.image_url %>" alt="<%= bookmark.recipe.name %>" />
+          </div>
+
+          <div class="card-description">
+            <h3><%= bookmark.recipe.name %></h3>
+            <p><%= bookmark.recipe.description %></p>
+          </div>
+
+          <div class="card-bottom">
+            <div class="card-infos">
+              <p><%= bookmark.comment %></p>
+            </div>
+
+            <div class="ratings">
+              <% rating = bookmark.recipe.rating.floor %>
+              <p>
+                <%= "⭐" * rating %> (<%= bookmark.recipe.rating %>)
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -4,10 +4,10 @@ Category.destroy_all
 Recipe.destroy_all
 
 # Create categories
-italian = Category.create!(name: "Italian")
-seafood = Category.create!(name: "Seafood")
-vegetarian = Category.create!(name: "Vegetarian")
-dessert = Category.create!(name: "Dessert")
+italian = Category.create!(name: "Italian", image_url: "italian.jpg")
+seafood = Category.create!(name: "Seafood", image_url: "seafood.jpg")
+vegetarian = Category.create!(name: "Vegetarian", image_url: "vegetarian.jpg")
+dessert = Category.create!(name: "Dessert", image_url: "dessert.jpg")
 
 # Create recipes
 lasagna = Recipe.create!(

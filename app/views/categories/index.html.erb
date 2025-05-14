@@ -1,8 +1,4 @@
-<h1>Cookbook</h1>
-<ul>
-  <% @categories.each do |category| %>
-    <li><%= link_to category.name, category_path(category) %></li>
-  <% end %>
-</ul>
-<%# new category button %>
-<%= link_to "Add New Category", new_category_path, class: "btn btn-primary" %>
+ <%= render 'shared/banner' %>
+ <%= render 'shared/cards' %>
+
+
